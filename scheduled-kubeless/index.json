@@ -1,0 +1,26 @@
+{
+  "title": "Scheduled Kubeless Function",
+  "description": "Your First Scenario",
+  "difficulty": "beginner",
+  "time": "4 minutes",
+  "details": {
+    "steps": [{
+      "title": "Step 1 - Run Command",
+      "text": "step1.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001bHello World\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "bash"
+  }
+}
