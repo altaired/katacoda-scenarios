@@ -1,4 +1,6 @@
-This is your first step.
+Getting started with kubernetes
+
+First step of this tutorial is to 
 
 ## Task
 

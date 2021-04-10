@@ -5,7 +5,7 @@
   "time": "4 minutes",
   "details": {
     "steps": [{
-      "title": "Step 1 - Run Command",
+      "title": "Step 1 - Setup kubernetes",
       "text": "step1.md"
     }],
     "intro": {
@@ -21,6 +21,6 @@
     "uimessage1": "Hello World\n"
   },
   "backend": {
-    "imageid": "bash"
+    "imageid": "kubernetes-cluster-running:1.18"
   }
 }
