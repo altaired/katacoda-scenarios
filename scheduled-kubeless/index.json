@@ -18,7 +18,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1": "\u001b Hello World \u001b[m\r\n"
+    "uimessage1": "Hello World\n"
   },
   "backend": {
     "imageid": "bash"
