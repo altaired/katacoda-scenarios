@@ -1,9 +1,25 @@
 Getting started with kubernetes
 
-First step of this tutorial is to 
+First step of this tutorial is to start up a kubernetes cluter.
 
 ## Task
 
-This is an _example_ of creating a scenario and running a **command**
+Let's first make sure the cluster is running by executing
 
-`echo 'Hello World'`{{execute}}
+`launch.sh`{{execute}}
+
+The command should print _Kubernetes started_ when ready.
+
+Let's see what we've setup, by running the _kubectl cluster-info_ command.
+
+`kubectl cluster-info`{{execute}}
+
+This tells you that and where the cluster is currently running.
+
+
+
+
+
+
+
+

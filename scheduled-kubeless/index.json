@@ -7,7 +7,12 @@
     "steps": [{
       "title": "Step 1 - Setup kubernetes",
       "text": "step1.md"
-    }],
+    },
+    {
+      "title": "Step 2 - Install Kubeless",
+      "text": "step2.md"
+    }
+  ],
     "intro": {
       "text": "intro.md",
       "credits": ""
