@@ -1,4 +1,4 @@
-We will now deploy and schedule out custom function.
+We will now deploy our custom function.
 
 Let's start by viewing the file `endpoint.js`, in which we have defined the code we want to be executed. You can see its content by running:
 
@@ -11,12 +11,17 @@ The code in inside the file makes and awaits an http call to the service we just
 ## Deploy the function
 We will now deploy the code in `endpoint.js`. This is done by the following command:
 
-`kubeless function deploy hello --runtime nodejs6 \
+`kubeless function deploy endpoint --runtime nodejs14 \
                               --handler endpoint.handler \
                               --from-file endpoint.js`{{execute}}
 
 To verify that the function was deployed we can use:
 
 `kubeless function ls`{{execute}}
+
+We can then call it with:
+
+`kubeless function call endpoint`{{execute}}
+
 
 
