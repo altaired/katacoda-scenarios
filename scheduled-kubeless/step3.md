@@ -12,4 +12,9 @@ The status of the deployment can be discovered via the running Pods -
 When we see that the pod is running, we'll start exposing the deployment as a service. This is done by running:
 `kubectl expose deployment http-endpoint --port=80 --type=NodePort`{{execute}}
 
-The service will be of type *NodePort*, meaning that
+The service will be of type *NodePort*, meaning that...
+
+Before continuing, let's make sure everything is running by running:
+`kubectl get all`{{execute}} and checking that both the deployment and service is ready
+
+
