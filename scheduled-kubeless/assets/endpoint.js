@@ -2,7 +2,7 @@ const http = require('http');
 
 module.exports = {
   handler: async (event, context) => {
-    await new Promise((resolve, reject) => {
+    const data = await new Promise((resolve, reject) => {
       http
         .get('http://10.96.166.48:80', (resp) => {
           let data = '';
@@ -14,7 +14,7 @@ module.exports = {
 
           // The whole response has been received. Print out the result.
           resp.on('end', () => {
-            console.log(JSON.parse(data).explanation);
+            console.log(data);
             resolve(data);
           });
         })
@@ -22,5 +22,6 @@ module.exports = {
           reject(err.message);
         });
     });
+    return data;
   },
 };
