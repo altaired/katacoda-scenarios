@@ -1,8 +1,26 @@
+const http = require('http');
+
 module.exports = {
   handler: async (event, context) => {
-    console.log(`function called at ${new Date().toISOString}`);
-    const response = await fetch('<IP_ADDRESS_HERE>:80');
-    console.log(response);
-    return response;
+    await new Promise((resolve, reject) => {
+      http
+        .get('http://10.96.166.48:80', (resp) => {
+          let data = '';
+
+          // A chunk of data has been received.
+          resp.on('data', (chunk) => {
+            data += chunk;
+          });
+
+          // The whole response has been received. Print out the result.
+          resp.on('end', () => {
+            console.log(JSON.parse(data).explanation);
+            resolve(data);
+          });
+        })
+        .on('error', (err) => {
+          reject(err.message);
+        });
+    });
   },
 };
