@@ -25,8 +25,8 @@ This will create all required kubernetes components for us, do it by running thi
 
 `kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.8/kubeless-non-rbac-v1.0.8.yaml`{{execute}}
 
-Let's see what's been created by running:
+Let's see what's been created by getting all components in the _kubeless_ namespace:
 
-`kubectl get all`{{execute}}
+`kubectl get all -n kubeless`{{execute}}
 
 
