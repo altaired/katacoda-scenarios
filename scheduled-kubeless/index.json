@@ -27,7 +27,8 @@
     "assets": {
       "host01": [{
           "file": "endpoint.js",
-          "target": "~/"
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
         }]
     }
   },
