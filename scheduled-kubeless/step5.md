@@ -5,3 +5,4 @@ Scheduled every minute
   cron-endpoint \
   --function endpoint \
   --schedule "* * * * *"`{{execute}}
+

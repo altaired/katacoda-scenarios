@@ -2,7 +2,7 @@
   "title": "Scheduled Kubeless Function",
   "description": "Your First Scenario",
   "difficulty": "beginner",
-  "time": "4 minutes",
+  "time": "10 minutes",
   "details": {
     "steps": [{
       "title": "Step 1 - Setup kubernetes",
@@ -23,6 +23,10 @@
     {
       "title": "Step 5 - Schedule function",
       "text": "step5.md"
+    },
+    {
+      "title": "Step 6 - Cleanup",
+      "text": "step6.md"
     }
   ],
     "intro": {
