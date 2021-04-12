@@ -45,6 +45,7 @@
     }
   },
   "environment": {
+    "hideHiddenFiles": true,
     "uilayout": "vscode-terminal-split",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
   },
