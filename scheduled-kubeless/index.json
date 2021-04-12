@@ -31,7 +31,8 @@
   ],
     "intro": {
       "text": "intro.md",
-      "credits": ""
+      "credits": "",
+      "background": "create_settings.sh"
     },
     "finish": {
       "text": "finish.md"
