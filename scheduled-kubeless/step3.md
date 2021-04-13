@@ -1,20 +1,30 @@
-We'll now create another kubernetes deployment and service which we will call from the schedules _Kubeless_ function.
+Next we'll create another kubernetes deployment with an http endpoint that we can call from the _Kubeless function_.
 
-We will use a basic http server docker image made by _Katacoda_ which exposes an endpoint that simply returns what node it is running on.
+For this we will use a pre made docker image by _katacoda_ called _docker-http-server_. The http server exposes single endpoint returning the name of the host it is beeing executed on, like follows:
 
-Let's create the container with the docker image by running the following command:
+`<h1>This request was processed by host: ...</h1>`
+
+## Deployment
+
+Let's create a deployment on our cluster with the image, by executing this command
 
 `kubectl create deployment http-endpoint --image=katacoda/docker-http-server`{{execute}}
 
-The status of the deployment can be discovered via the running Pods -
-`kubectl get pods`
+We can verify that everything went well by listing the pods in the cluster, use `kubectl get pods`{{execute}} to do this.
 
-When we see that the pod is running, we'll start exposing the deployment as a service. This is done by running:
-`kubectl expose deployment http-endpoint --port=80 --type=NodePort`{{execute}}
 
-The service will be of type *NodePort*, meaning that...
+You should see that there is one pod running prefixed http-endpoint.
 
-Before continuing, let's make sure everything is running by running:
-`kubectl get all`{{execute}} and checking that both the deployment and service is ready
+## Service
+
+We will now expose this deployment with a service, so that we're not dependent on a single pod. Since we will only access the service inside of our cluser, we'll use the type ClusterIP. This exposes the service through an internal IP-address. We will also specify that the traffic should enter on port *80*. To expose the service we'll use the following command:
+
+`kubectl expose deployment http-endpoint --port=80 --type=ClusterIP`{{execute}}
+
+
+Before continuing to the next step, let's make sure everything is running with the command:
+`kubectl get all`{{execute}} which will list all components in the cluster. Check that both the deployment and service are ready.
+
+
 
 
