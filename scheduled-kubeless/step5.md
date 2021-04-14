@@ -64,4 +64,3 @@ When the status is `READY`, we can try calling it with:
 `kubeless function call endpoint`{{execute}}
 
 The output we get is the returned data from the function. If we want to see the logged output we can use `kubeless function logs endpoint`{{execute}}.
-

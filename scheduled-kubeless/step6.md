@@ -1,7 +1,14 @@
-With the function deployed and able to respond to events, we are ready to run it according to a schedule.
+With the function deployed and able to respond to events, we are ready to run it according to a schedule using a cronjob.
 
-Scheduled every minute
+## What is cron?
 
+*cron* is a utility that allows users to run commands periodically according to a certain schedule.
+
+Items in the cron schedule (jobs) consist of 5 numbers, together with the command to run. These numbers denote the minute, hour, day of the month, month, and day of the week, at which the job should run. For example:
+
+`0,30 * * 1 * /usr/bin/command`
+
+Means that `/usr/bin/command` will be run at minute `0` and `30` of every hour (an asterix denotes a wildcard) when the month is January (`1`). For more information about cron and its syntax, check out the link at the bottom of the page.
 
 ## Create a cronjob
 
@@ -29,3 +36,9 @@ The following command can be used to check the logs of the function:
 `kubeless function logs endpoint`
 
 Every minute, as a result of our cronjob, an entry should be added to these logs that shows that the function has run, including its output.
+
+## Cron information recommendations
+
+[Beginners Guide To Cron Jobs](https://ostechnix.com/a-beginners-guide-to-cron-jobs/)
+
+[Crontab.guru: a cron expression editor](https://crontab.guru/#*_*_*_*_*)
