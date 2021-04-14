@@ -48,9 +48,9 @@ The scripts exports a single function `handler`, which will handle events that t
 Now that we have our file containing the function, it can be deployed to the cluster using the following command:
 
 `kubeless function deploy endpoint \
-                           --runtime nodejs14 \
-                           --handler endpoint.handler \
-                           --from-file endpoint.js`{{execute}}
+        --runtime nodejs14 \
+        --handler endpoint.handler \
+        --from-file endpoint.js`{{execute}}
 
 This creates a deployed function from our file `endpoint.js` with the name `endpoint`; node.js 14 will be used as the runtime, and the exported `endpoint.handler` will respond to events.
 
