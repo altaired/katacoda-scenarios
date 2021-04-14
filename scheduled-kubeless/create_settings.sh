@@ -8,6 +8,6 @@ cat << VSCODEEOF > /opt/.katacodacode/user-data/User/settings.json
     "**/.*": true,
     "go": true
   },
-  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticHighlighting.enabled": true
 }
 VSCODEEOF
