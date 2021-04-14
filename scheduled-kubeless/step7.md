@@ -1,3 +1,5 @@
+
+
 ## You've made it
 
 You've now created a Kubernetes cluster with two services, where one is a scheduled function that calls the other. Before we leave, we'll delete the cronjob we created. It is not mandatory as this is just a VM that will be trashed when you close this tab, but it's good to know how to remove the cronjob properly.

@@ -13,11 +13,14 @@ The cronjob for our function can be created by running the following command:
 
 This command creats a trigger of the `cronjob` type with the name `cron-endpoint`. Of course, we would like to trigger our function `endpoint`. The cronjob scheduling `* * * * *` ensures that the cronjob is run every minute.
 
+
 ## Wait a minute!
 
-Because our cronjob runs every minute, we need to wait a little before its results are visible.
+Because our cronjob runs every minute, we need to wait a little before its results are visible. So why not learn some interesting facts below while waiting:
 
 <iframe style="width: 700px;height: 400px;" src="https://www.youtube-nocookie.com/embed/zhWDdy_5v2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 ## Check the log
 
