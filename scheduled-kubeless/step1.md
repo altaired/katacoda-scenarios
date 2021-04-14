@@ -1,4 +1,4 @@
-On your right is a terminal that we've setup with a kubernetes cluster. This cluster will be used throughout this tutorial. We expect you to have some knowledge about Kubernetes before doing this tutorial, and know about common concepts, such as clusters, services, deployments, and pods. If you're completely unfamiliar with Kubernetes, we suggest you read up on it beforehand. On the bottom of this page you can find links to two great tutorials on Kubernetes (not part of the tutorial).
+On your right is a terminal that we've setup with a Kubernetes cluster. This cluster will be used throughout this tutorial. We expect you to have some knowledge about Kubernetes before doing this tutorial, and know about common concepts, such as clusters, services, deployments, and pods. If you're completely unfamiliar with Kubernetes, we suggest you read up on it beforehand. On the bottom of this page you can find links to two great tutorials on Kubernetes (not part of the tutorial).
 
 
 
