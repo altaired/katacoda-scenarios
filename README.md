@@ -1,5 +1,4 @@
 # Interactive Katacoda Scenarios
- Test
 
 [![](http://shields.katacoda.com/katacoda/siper/count.svg)](https://www.katacoda.com/siper "Get your profile on Katacoda.com")
 
