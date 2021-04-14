@@ -7,6 +7,7 @@ cat << VSCODEEOF > /opt/.katacodacode/user-data/User/settings.json
   "files.exclude": {
     "**/.*": true,
     "go": true
-  }
+  },
+  "editor.semanticHighlighting.enabled": true,
 }
 VSCODEEOF
