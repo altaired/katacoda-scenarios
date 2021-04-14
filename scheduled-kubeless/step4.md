@@ -4,23 +4,28 @@ With everything set up, we're ready to deploy our own function in the cluster. L
 
 ## The function
 
+In our case, we will write our function in Javascript. Save the following script with the name `endpoint.js`:
+
 <pre class="file" data-filename="endpoint.js" data-target="replace">
 const http = require('http');
 
 module.exports = {
   handler: async (event, context) => {
+    // Get the IP of http-endpoint
     const host = process.env['HTTP_ENDPOINT_SERVICE_HOST'];
 
     const data = await new Promise((resolve, reject) => {
+      // Send a GET request to http-endpoint
+
       http.get(`http://${host}:80`, (resp) => {
         let data = '';
 
-        // A chunk of data has been received.
+        // Part of the response is received
         resp.on('data', (chunk) => {
           data += chunk;
         });
 
-        // The whole response has been received. Print out the result.
+        // The response has finished: log to the console
         resp.on('end', () => {
           console.log(data);
           resolve(data);
@@ -36,30 +41,23 @@ module.exports = {
 };
 </pre>
 
-We will now deploy our custom function.
-
-Let's start by viewing the file `endpoint.js`, in which we have defined the code we want to be executed. You can see its content by running:
-
-`cat endpoint.js`{{execute}}
-
-### endpoint.js
-The code in inside the file makes and awaits an http call to the service we just deployed. The URL used is `http-endpoint:80` since it is located in the default namespace, there is no need to specify it here.
-
+The scripts exports a single function `handler`, which will handle events that trigger it. The function is rather simple: it sends a GET request to the `http-endpoint` that we defined in the previous step. The returned response is logged to the console.
 
 ## Deploy the function
-We will now deploy the code in `endpoint.js`. This is done by the following command:
 
-`kubeless function deploy endpoint --runtime nodejs14 \
-                              --handler endpoint.handler \
-                              --from-file endpoint.js`{{execute}}
+Now that we have our file containing the function, it can be deployed to the cluster using the following command:
 
-To verify that the function was deployed we can use:
+`kubeless function deploy endpoint \
+                           --runtime nodejs14 \
+                           --handler endpoint.handler \
+                           --from-file endpoint.js`{{execute}}
 
-`kubeless function ls`{{execute}}
+This creates a deployed function from our file `endpoint.js` with the name `endpoint`; node.js 14 will be used as the runtime, and the exported `endpoint.handler` will respond to events.
 
-We can then call it with:
+To see the status of the deployment, we can use:
+
+`kubeless function ls endpoint`{{execute}}
+
+When the status is `READY`, we're ready to call it with:
 
 `kubeless function call endpoint`{{execute}}
-
-
-
