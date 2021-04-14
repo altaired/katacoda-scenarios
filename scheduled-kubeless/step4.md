@@ -16,7 +16,6 @@ module.exports = {
 
     const data = await new Promise((resolve, reject) => {
       // Send a GET request to http-endpoint
-
       http.get(`http://${host}:80`, (resp) => {
         let data = '';
 
