@@ -1,62 +1,30 @@
-With everything set up, we're ready to deploy our own function in the cluster. Like most serverless platforms, Kubeless supports several different programming languages, such as Javascript, Python, and Go. You can display the full list of supported runtimes with:
+Next, we'll create another Kubernetes deployment with an http endpoint that we can call from our _Kubeless function_.
 
-`kubeless get-server-config`{{execute}}
+For this, we will use a pre-made docker image by _Katacoda_, called _docker-http-server_. The http server exposes single endpoint that returns the name of the host it is being executed on, as follows:
 
-## The function
+`<h1>This request was processed by host: ...</h1>`
 
-In our case, we will write our function in Javascript. Save the following script with the name `endpoint.js`:
+## Deployment
 
-<pre class="file" data-filename="endpoint.js" data-target="replace">
-const http = require('http');
+Let's create a deployment on our cluster with the image, by executing this command
 
-module.exports = {
-  handler: async (event, context) => {
-    // Get the IP of http-endpoint
-    const host = process.env['HTTP_ENDPOINT_SERVICE_HOST'];
+`kubectl create deployment http-endpoint --image=katacoda/docker-http-server`{{execute}}
 
-    const data = await new Promise((resolve, reject) => {
-      // Send a GET request to http-endpoint
-      http.get(`http://${host}:80`, (resp) => {
-        let data = '';
+We can verify that everything went well by listing the pods in the cluster; use `kubectl get pods`{{execute}} to do this.
 
-        // Part of the response is received
-        resp.on('data', (chunk) => {
-          data += chunk;
-        });
 
-        // The response has finished: log to the console
-        resp.on('end', () => {
-          console.log(data);
-          resolve(data);
-        });
-      })
-      .on('error', (err) => {
-        reject(err.message);
-      });
-    });
+You should see that there is one pod running with the prefix `http-endpoint`.
 
-    return data;
-  },
-};
-</pre>
+## Service
 
-The scripts exports a single function `handler`, which will handle events that trigger it. The function is rather simple: it sends a GET request to the `http-endpoint` that we defined in the previous step. The returned response is logged to the console.
+We will now expose this deployment with a service, so that we're not dependent on a single pod. Since we will only access the service inside of our cluser, we'll use the type ClusterIP. This exposes the service through an internal IP-address. We will also specify that the traffic should enter on port *80*. To expose the service we'll use the following command:
 
-## Deploy the function
+`kubectl expose deployment http-endpoint --port=80 --type=ClusterIP`{{execute}}
 
-Now that we have our file containing the function, it can be deployed to the cluster using the following command:
 
-`kubeless function deploy endpoint \
-        --runtime nodejs14 \
-        --handler endpoint.handler \
-        --from-file endpoint.js`{{execute}}
+Before continuing to the next step, let's make sure everything is running with the command:
+`kubectl get all`{{execute}}, which will list all components in the cluster. Check that both the deployment and service are ready.
 
-This creates a deployed function from our file `endpoint.js` with the name `endpoint`; node.js 14 will be used as the runtime, and the exported `endpoint.handler` will respond to events.
 
-To see the status of the deployment, we can use:
 
-`kubeless function ls endpoint`{{execute}}
 
-When the status is `READY`, we're ready to call it with:
-
-`kubeless function call endpoint`{{execute}}

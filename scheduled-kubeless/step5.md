@@ -1,28 +1,67 @@
-With the function deployed and able to respond to events, we are ready to run it according to a schedule.
+With everything set up, we're ready to deploy our own function in the cluster. Like most serverless platforms, Kubeless supports several different programming languages, such as Javascript, Python, and Go. You can display the full list of supported runtimes with:
 
-Scheduled every minute
+`kubeless get-server-config`{{execute}}
 
+## The function
 
-## Create a cronjob
+In our case, we will write our function in Javascript. Save the following script with the name `endpoint.js` (press Copy to Editor to quickly add it in your workspace):
 
-The cronjob for our function can be created by running the following command:
+<pre class="file" data-filename="endpoint.js" data-target="replace">
+const http = require('http');
 
-`kubeless trigger cronjob create cron-endpoint \
-        --function endpoint \
-        --schedule "* * * * *"`{{execute}}
+module.exports = {
+  handler: async (event, context) => {
+    // Get the IP of http-endpoint
+    const host = process.env['HTTP_ENDPOINT_SERVICE_HOST'];
 
-This command creats a trigger of the `cronjob` type with the name `cron-endpoint`. Of course, we would like to trigger our function `endpoint`. The cronjob scheduling `* * * * *` ensures that the cronjob is run every minute.
+    const data = await new Promise((resolve, reject) => {
+      // Send a GET request to http-endpoint
+      http.get(`http://${host}:80`, (resp) => {
+        let data = '';
 
-## Wait a minute!
+        // Part of the response is received
+        resp.on('data', (chunk) => {
+          data += chunk;
+        });
 
-Because our cronjob runs every minute, we need to wait a little before its results are visible.
+        // The response has finished: log to the console
+        resp.on('end', () => {
+          console.log(data);
+          resolve(data);
+        });
+      })
+      .on('error', (err) => {
+        reject(err.message);
+      });
+    });
 
-<iframe style="width: 700px;height: 400px;" src="https://www.youtube-nocookie.com/embed/zhWDdy_5v2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    return data;
+  },
+};
+</pre>
 
-## Check the log
+The scripts exports a single function `handler`. The function is rather simple: it sends a GET request to the `http-endpoint` that we defined in the previous step. The returned response is logged to the console.
 
-The following command can be used to check the logs of the function:
+## Deploy the function
 
-`kubeless function logs endpoint`
+Now that we have our file containing the function, it can be deployed to the cluster using the following command:
 
-Every minute, as a result of our cronjob, an entry should be added to these logs that shows that the function has run, including its output.
+`kubeless function deploy endpoint \
+        --runtime nodejs14 \
+        --handler endpoint.handler \
+        --from-file endpoint.js`{{execute}}
+
+As you can see we give the function a name and simply tell it what runtime and function to deploy.
+
+This creates a deployed function from our file `endpoint.js` with the name `endpoint`; node.js 14 will be used as the runtime, and the exported `endpoint.handler` will respond to events.
+
+To see the status of the deployment, we can use:
+
+`kubeless function ls endpoint`{{execute}}
+
+When the status is `READY`, we can try calling it with:
+
+`kubeless function call endpoint`{{execute}}
+
+The output we get is the returned data from the function. If we want to see the logged output we can use `kubeless function logs endpoint`{{execute}}.
+
