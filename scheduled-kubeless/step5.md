@@ -1,42 +1,66 @@
-With the function deployed and able to respond to events, we are ready to run it according to a schedule.
+With everything set up, we're ready to deploy our own function in the cluster. Like most serverless platforms, Kubeless supports several different programming languages, such as Javascript, Python, and Go. You can display the full list of supported runtimes with:
 
-## What is cron?
+`kubeless get-server-config`{{execute}}
 
-*cron* is a utility that allows users to run commands periodically according to a certain schedule.
+## The function
 
-Items in the cron schedule (jobs) consist of 5 numbers, together with the command to run. These numbers denote the minute, hour, day of the month, month, and day of the week, at which the job should run. For example:
+In our case, we will write our function in Javascript. Save the following script with the name `endpoint.js` (press Copy to Editor to quickly add it in your workspace):
 
-`0,30 * * 1 * /usr/bin/command`
+<pre class="file" data-filename="endpoint.js" data-target="replace">
+const http = require('http');
 
-Means that `/usr/bin/command` will be run at minute `0` and `30` of every hour (an asterix denotes a wildcard) when the month is January (`1`). For more information about cron and its syntax, check out the link at the bottom of the page.
+module.exports = {
+  handler: async (event, context) => {
+    // Get the IP of http-endpoint
+    const host = process.env['HTTP_ENDPOINT_SERVICE_HOST'];
 
-## Create a cronjob
+    const data = await new Promise((resolve, reject) => {
+      // Send a GET request to http-endpoint
+      http.get(`http://${host}:80`, (resp) => {
+        let data = '';
 
-The cronjob for our function can be created by running the following command:
+        // Part of the response is received
+        resp.on('data', (chunk) => {
+          data += chunk;
+        });
 
-`kubeless trigger cronjob create cron-endpoint \
-        --function endpoint \
-        --schedule "* * * * *"`{{execute}}
+        // The response has finished: log to the console
+        resp.on('end', () => {
+          console.log(data);
+          resolve(data);
+        });
+      })
+      .on('error', (err) => {
+        reject(err.message);
+      });
+    });
 
-This command creats a trigger of the `cronjob` type with the name `cron-endpoint`. Of course, we would like to trigger our function `endpoint`. The cronjob scheduling `* * * * *` ensures that the cronjob is run every minute.
+    return data;
+  },
+};
+</pre>
 
-## Wait a minute!
+The scripts exports a single function `handler`. The function is rather simple: it sends a GET request to the `http-endpoint` that we defined in the previous step. The returned response is logged to the console.
 
-Because our cronjob runs every minute, we need to wait a little before its results are visible.
+## Deploy the function
 
-<iframe style="width: 700px;height: 400px;" src="https://www.youtube-nocookie.com/embed/zhWDdy_5v2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Now that we have our file containing the function, it can be deployed to the cluster using the following command:
 
-## Check the log
+`kubeless function deploy endpoint \
+        --runtime nodejs14 \
+        --handler endpoint.handler \
+        --from-file endpoint.js`{{execute}}
 
-The following command can be used to check the logs of the function:
+As you can see we give the function a name and simply tell it what runtime and function to deploy.
 
-`kubeless function logs endpoint`
+This creates a deployed function from our file `endpoint.js` with the name `endpoint`; node.js 14 will be used as the runtime, and the exported `endpoint.handler` will respond to events.
 
-Every minute, as a result of our cronjob, an entry should be added to these logs that shows that the function has run, including its output.
+To see the status of the deployment, we can use:
 
-## Cron information recommendations
+`kubeless function ls endpoint`{{execute}}
 
-[Beginners Guide To Cron Jobs](https://ostechnix.com/a-beginners-guide-to-cron-jobs/)
+When the status is `READY`, we can try calling it with:
 
-[Crontab.guru: a cron expression editor](https://crontab.guru/#*_*_*_*_*)
+`kubeless function call endpoint`{{execute}}
 
+The output we get is the returned data from the function. If we want to see the logged output we can use `kubeless function logs endpoint`{{execute}}.

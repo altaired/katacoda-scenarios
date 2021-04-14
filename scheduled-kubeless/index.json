@@ -9,24 +9,28 @@
       "text": "step1.md"
     },
     {
-      "title": "Step 2 - Install Kubeless",
+      "title": "Step 2 - What is Kubeless",
       "text": "step2.md"
     },
     {
-      "title": "Step 3 - Create an API endpoint",
+      "title": "Step 3 - Install Kubeless",
       "text": "step3.md"
     },
     {
-      "title": "Step 4 - Deploy a function",
+      "title": "Step 4 - Create an API endpoint",
       "text": "step4.md"
     },
     {
-      "title": "Step 5 - Schedule a function",
+      "title": "Step 5 - Deploy a function",
       "text": "step5.md"
     },
     {
-      "title": "Step 6 - Cleanup",
+      "title": "Step 6 - Schedule a function",
       "text": "step6.md"
+    },
+    {
+      "title": "Step 7 - Cleanup",
+      "text": "step7.md"
     }
   ],
     "intro": {

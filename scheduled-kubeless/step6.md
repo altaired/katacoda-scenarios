@@ -1,18 +1,41 @@
-## You've made it
+With the function deployed and able to respond to events, we are ready to run it according to a schedule using a cronjob.
 
-You've now created a Kubernetes cluster with two services, where one is a scheduled function that calls the other. Before we leave, we'll delete the cronjob we created. It is not mandatory as this is just a VM that will be trashed when you close this tab, but it's good to know how to remove the cronjob properly.
+## What is cron?
 
-## It's time for chores
-In order to call the function on a schedule we used a trigger of type cronjob. To see the currently defined cronjob triggers run:
+*cron* is a utility that allows users to run commands periodically according to a certain schedule.
 
-`kubeless trigger cronjob list`{{execute}}
+Items in the cron schedule (jobs) consist of 5 numbers, together with the command to run. These numbers denote the minute, hour, day of the month, month, and day of the week, at which the job should run. For example:
 
-To finally remove the cronjob trigger, we will use the following command:
+`0,30 * * 1 * /usr/bin/command`
 
-`kubeless trigger cronjob delete cron-endpoint`{{execute}}
+Means that `/usr/bin/command` will be run at minute `0` and `30` of every hour (an asterix denotes a wildcard) when the month is January (`1`). For more information about cron and its syntax, check out the link at the bottom of the page.
 
+## Create a cronjob
 
-Congratulations!
+The cronjob for our function can be created by running the following command:
 
+`kubeless trigger cronjob create cron-endpoint \
+        --function endpoint \
+        --schedule "* * * * *"`{{execute}}
 
+This command creats a trigger of the `cronjob` type with the name `cron-endpoint`. Of course, we would like to trigger our function `endpoint`. The cronjob scheduling `* * * * *` ensures that the cronjob is run every minute.
 
+## Wait a minute!
+
+Because our cronjob runs every minute, we need to wait a little before its results are visible.
+
+<iframe style="width: 700px;height: 400px;" src="https://www.youtube-nocookie.com/embed/zhWDdy_5v2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Check the log
+
+The following command can be used to check the logs of the function:
+
+`kubeless function logs endpoint`
+
+Every minute, as a result of our cronjob, an entry should be added to these logs that shows that the function has run, including its output.
+
+## Cron information recommendations
+
+[Beginners Guide To Cron Jobs](https://ostechnix.com/a-beginners-guide-to-cron-jobs/)
+
+[Crontab.guru: a cron expression editor](https://crontab.guru/#*_*_*_*_*)
