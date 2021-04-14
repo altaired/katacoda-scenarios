@@ -1,6 +1,6 @@
 Next, we'll create another Kubernetes deployment with an http endpoint that we can call from our _Kubeless function_.
 
-For this, we will use a pre-made docker image by _Katacoda_, called _docker-http-server_. The http server exposes single endpoint that returns the name of the host it is being executed on, as follows:
+For this, we will use a pre-made docker image by _Katacoda_, called [docker-http-server](https://hub.docker.com/r/katacoda/docker-http-server). The http server exposes single endpoint that returns the name of the host it is being executed on, as follows:
 
 `<h1>This request was processed by host: ...</h1>`
 
