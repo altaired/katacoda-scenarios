@@ -43,7 +43,8 @@
     },
     "assets": {
       "host01": [
-        {"file": "snake.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+        {"file": "snake.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+        {"file": "what-to-do", "target": "/usr/local/bin/", "chmod": "+x"}
       ]
     }
   },
