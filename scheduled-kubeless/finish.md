@@ -9,3 +9,7 @@ You've now deployed both a service on Kubernetes and a serverless function using
 
 
 [Kubeless Documentation](https://kubeless.io/docs/)
+
+
+## Easter egg
+Psst. Did you find the easter egg? If not, make sure you go back and ask `what-to-do`{{execute}}
