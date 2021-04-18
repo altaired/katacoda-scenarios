@@ -12,4 +12,4 @@ You've now deployed both a service on Kubernetes and a serverless function using
 
 
 ## Easter egg
-Psst. Did you find the easter egg? If not, make sure you go back and ask `what-to-do`{{execute}}
+Psst. Did you find the easter egg? If not, make sure you go back and ask `what-to-do`
