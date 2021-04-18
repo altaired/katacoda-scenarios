@@ -4,7 +4,7 @@ With the function deployed and able to respond to events, we are ready to run it
 
 *cron* is a utility that allows users to run commands periodically according to a certain schedule.
 
-Items in the cron schedule (jobs) consist of 5 numbers, together with the command to run. These numbers denote the minute, hour, day of the month, month, and day of the week, at which the job should run. For example:
+Items in the cron schedule (jobs) consist of 5 numbers, together with the command to run. These numbers denote the minute, hour, day of the month, month, and day of the week, at which the job should run. For example adding the following line to the crontab (a cron schedule file):
 
 `0,30 * * 1 * /usr/bin/command`
 
@@ -23,7 +23,7 @@ This command creats a trigger of the `cronjob` type with the name `cron-endpoint
 
 ## Wait a minute!
 
-Because our cronjob runs every minute, we need to wait a little before its results are visible. So why not learn some interesting facts below while waiting:
+Because our cronjob runs every minute (the minimum time of a cron schedule), we need to wait a little before its results are visible. So why not learn some interesting facts below while waiting:
 
 <iframe style="width: 700px;height: 400px;" src="https://www.youtube-nocookie.com/embed/zhWDdy_5v2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
