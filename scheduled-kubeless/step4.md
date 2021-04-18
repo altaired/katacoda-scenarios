@@ -1,6 +1,6 @@
-Next, we'll create another Kubernetes deployment with an http endpoint that we can call from our _Kubeless function_.
+Next, we'll create another Kubernetes deployment with an HTTP endpoint that we can call from our Kubeless function.
 
-For this, we will use a pre-made docker image by _Katacoda_, called [docker-http-server](https://hub.docker.com/r/katacoda/docker-http-server). The http server exposes single endpoint that returns the name of the host it is being executed on, as follows:
+For this, we will use a pre-made docker image by Katacoda, called [docker-http-server](https://hub.docker.com/r/katacoda/docker-http-server). The HTTP server exposes single endpoint that returns the name of the host it is being executed on, as follows:
 
 `<h1>This request was processed by host: ...</h1>`
 
@@ -24,7 +24,4 @@ We will now expose this deployment with a service, so that we're not dependent o
 
 Before continuing to the next step, let's make sure everything is running with the command:
 `kubectl get all`{{execute}}, which will list all components in the cluster. Check that both the deployment and service are ready.
-
-
-
 
