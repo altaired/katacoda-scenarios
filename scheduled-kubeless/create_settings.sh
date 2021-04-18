@@ -12,4 +12,5 @@ cat << VSCODEEOF > /opt/.katacodacode/user-data/User/settings.json
   "editor.semanticHighlighting.enabled": true
 }
 VSCODEEOF
-alias what-to-do="snake.sh"
+echo  'alias what-to-do="snake.sh"' >> ~/.bashrc
+source ~/.bashrc
