@@ -1,3 +1,3 @@
 #!/bin/bash
 
-alias what-to-do="snake.sh"
+alias what-to-do2="snake.sh"
