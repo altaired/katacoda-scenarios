@@ -1,9 +1,10 @@
 #!/bin/bash
 
 echo "Ready"
-sleep 1s
+sleep 1.5s
 echo "Set"
 sleep 1s
 echo "GO!"
 sleep 0.5s
+
 /usr/local/bin/snake.sh
