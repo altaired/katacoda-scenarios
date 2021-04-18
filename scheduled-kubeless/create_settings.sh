@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias what-to-do="snake.sh"
+
 mkdir -p /opt/.katacodacode/user-data/User/
 
 cat << VSCODEEOF > /opt/.katacodacode/user-data/User/settings.json
@@ -12,4 +14,3 @@ cat << VSCODEEOF > /opt/.katacodacode/user-data/User/settings.json
   "editor.semanticHighlighting.enabled": true
 }
 VSCODEEOF
-alias what-to-do="snake.sh"
