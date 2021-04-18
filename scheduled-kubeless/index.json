@@ -36,7 +36,6 @@
     "intro": {
       "text": "intro.md",
       "credits": "By Martijn Atema & Simon Persson",
-      "foreground": "create_alias.sh",
       "background": "create_settings.sh"
     },
     "finish": {
@@ -44,7 +43,8 @@
     },
     "assets": {
       "host01": [
-        {"file": "snake.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+        {"file": "snake.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+        {"file": "what-to-do", "target": "/usr/local/bin/", "chmod": "+x"}
       ]
     }
   },
