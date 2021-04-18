@@ -27,6 +27,8 @@ Because our cronjob runs every minute, we need to wait a little before its resul
 
 <iframe style="width: 700px;height: 400px;" src="https://www.youtube-nocookie.com/embed/zhWDdy_5v2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+In case you feel that you know everything there is to know already, you can always ask `what-to-do`{{execute}} (rumors says that bash loves vim, especially the keys `h j k l`).
+
 
 
 ## Check the log
