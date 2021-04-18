@@ -1,8 +1,23 @@
-_Kubeless_ is "serverless" framework for _Kubernetes_ that allows you small bits of code without having to worry about setting up an infrastructure. This means that instead of having to create a server for your code, you can simply pass it the function and _Kubeless_ will take care of the rest. The concept is very similar to services such as _Google Cloud Functions_ and _AWS Lambda_. _Kubeless_ also supports different ways of triggering the deployed functions, in this tutorial we will take a closer look on their cronjob trigger, allowing us to call a function on a certain schedule.
+According to their website, Kubeless is a "Kubernetes-native serverless framework".
 
+## What is serverless?
 
-The next step is to install _Kubeflow_, as it's designed to be deployed on a _Kubernetes_ cluster, it is easy to setup by simply fetching a yaml configuration they provide.
+Serverless is a framework in which machine resources are managed by the cloud provider and allocated based on demand. Of course, servers are still used in this process, but they are abstracted away by the platform, such that the developer can focus on the actual code, without having to worry about the infrastructure.
+
+Serverless often takes the shape of *Function as a Service* (FaaS), in which small bits of code can be deployed (so-called *functions*), which can respond to triggers from the environment (e.g., HTTP or cronjob). Example cloud offerings of FaaS are _AWS Lambda_, _Google Cloud Functions_, and _Azure Functions_.
+
+## What is Kubeless?
+
+Kubeless is an open-source FaaS framework that enables deploying serverless functions to a Kubernetes cluster, without having to worry about the exact components that come into play.
+
+Because Kubeless runs on Kubernetes, it makes it possible to keep away from the public cloud providers, and instead run the functions on your own (private cloud) infrastructure, while still supporting important features such as autoscaling.
+
+In this tutorial, we will start with the basics: deploying a simple function to the cluster. Then, we'll take a closer look at the cronjob trigger, allowing us to call the deployed function according to a schedule.
+
+In the next step, we will start by installing Kubeless on the running cluster.
 
 
 ## Documentation
-[Kubeless docs](https://kubeless.io/docs/)
+[Kubeless Documentation](https://kubeless.io/docs/)
+
+[Serverless Framkework Documentation](https://www.serverless.com/framework/docs/)
