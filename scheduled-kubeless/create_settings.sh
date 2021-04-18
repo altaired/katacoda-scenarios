@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 
 mkdir -p /opt/.katacodacode/user-data/User/
 
