@@ -36,7 +36,6 @@
     "intro": {
       "text": "intro.md",
       "credits": "By Martijn Atema & Simon Persson",
-      "foreground": "create_alias.sh",
       "background": "create_settings.sh"
     },
     "finish": {
