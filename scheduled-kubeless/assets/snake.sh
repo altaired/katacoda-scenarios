@@ -7,7 +7,7 @@ declare -i height=$(($(tput lines)-5)) width=$(($(tput cols)-2))
 # row and column number of head
 declare -i head_r head_c tail_r tail_c
 
-declare -i alive  
+declare -i alive
 declare -i length
 declare body
 
@@ -227,9 +227,9 @@ game_loop() {
         fi
         move_snake
         draw_board
-        sleep 0.03
+        sleep 0.06
     done
-    
+
     echo -e "${text_color}Oh, No! You 0xdead$no_color"
 
     # signals the input loop that the snake is dead
