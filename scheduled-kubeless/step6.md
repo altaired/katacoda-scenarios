@@ -35,7 +35,7 @@ In case you feel that you know everything there is to know already or are not a 
 
 The following command can be used to check the logs of the function:
 
-`kubeless function logs endpoint`
+`kubeless function logs endpoint`{{execute}}
 
 Every minute, as a result of our cronjob, an entry should be added to these logs that shows that the function has run, including its output.
 
