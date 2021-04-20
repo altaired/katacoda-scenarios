@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Welcome to Snake"
+sleep 1s
 echo "Ready"
 sleep 1.5s
 echo "Set"
