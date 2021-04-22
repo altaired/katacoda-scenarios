@@ -4,7 +4,7 @@ According to their [website](https://kubeless.io/), Kubeless is a "Kubernetes-na
 
 Serverless is a framework in which machine resources are managed by the cloud provider and allocated based on demand. Of course, servers are still used in this process, but they are abstracted away by the platform, such that the developer can focus on the actual code, without having to worry about the infrastructure.
 
-Serverless often takes the shape of *Function as a Service* (FaaS), in which small bits of code can be deployed (so-called *functions*), which can respond to triggers from the environment (e.g., HTTP or cronjob). Example cloud offerings of FaaS are _AWS Lambda_, _Google Cloud Functions_, and _Azure Functions_.
+Serverless often takes the shape of *Function as a Service* (FaaS), in which small bits of code can be deployed (so-called *functions*), which can respond to triggers from the environment (e.g., HTTP requests or a schedule). Example cloud offerings of FaaS are _AWS Lambda_, _Google Cloud Functions_, and _Azure Functions_.
 
 ## What is Kubeless?
 
