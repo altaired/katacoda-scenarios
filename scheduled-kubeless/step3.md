@@ -18,7 +18,7 @@ Next, we can use a config file provided by Kubeless, which will create all compo
 
 Among the components kubeless creates is a service, we can make sure this was successfully created by listing the services in our `kubeless` namespace:
 
-`kubectl get services -n kubeless`{{execute}} we should see that there is a service for kubeless.
+`kubectl get all -n kubeless`{{execute}}. The output of this command should show that three *pods*, one *deployment*, and one *replicaset* have been created for the Kubeless controller.
 
 ### Install the CLI
 
