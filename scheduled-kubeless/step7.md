@@ -7,7 +7,7 @@ You've now created a Kubernetes cluster with two services, where one is a schedu
 ## It's time for chores
 In order to call the function on a schedule we used a trigger of type cronjob. To see the currently defined cronjob triggers run:
 
-`kubeless trigger cronjob list`{{execute}}
+`kubeless trigger cronjob list`{{execute}} this should show the trigger we added in the previous step.
 
 To remove the cronjob trigger, we will use the following command:
 

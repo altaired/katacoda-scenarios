@@ -6,9 +6,9 @@ With the function deployed and able to respond to events, we are ready to run it
 
 Items in the cron schedule (jobs) consist of 5 numbers, together with the command to run. These numbers denote the minute, hour, day of the month, month, and day of the week, at which the job should run. For example, adding the following line to the crontab (a cron schedule file):
 
-`0,30 * * 1 * /usr/bin/command`
+`0,30 * * 1 * /path/to/executable`
 
-Means that the command `/usr/bin/command` will be run at minute `0` and `30` of every hour (an asterix denotes a wildcard) when the month is January (`1`). For more information about cron and its syntax, check out the links at the bottom of the page.
+Means that the executable will be run at minute `0` and `30` of every hour (an asterix denotes a wildcard) when the month is January (`1`). For more information about cron and its syntax, check out the links at the bottom of the page.
 
 ## Create a cronjob
 
@@ -32,7 +32,7 @@ In case you feel that you know everything there is to know already or are not a 
 
 ## Check the log
 
-The following command can be used to check the logs of the function:
+The following command can be used to print the logs of the function:
 
 `kubeless function logs endpoint`{{execute}}
 
