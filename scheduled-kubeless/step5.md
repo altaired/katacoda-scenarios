@@ -1,6 +1,6 @@
-With everything set up, we're ready to deploy our own function in the cluster. Like most serverless platforms, Kubeless supports several different programming languages, such as Javascript, Python, and Go. You can display the full list of supported runtimes with:
+With everything set up, we're ready to deploy our own function in the cluster. Like most serverless platforms, Kubeless supports several different programming languages, such as Javascript, Python, and Go.
 
-`kubeless get-server-config`{{execute}}
+`kubeless get-server-config`{{execute}} will show you a full list of supported runtimes.
 
 ## The function
 
@@ -57,10 +57,10 @@ This creates a deployed function from our file `endpoint.js` with the name `endp
 
 To see the status of the deployment, we can use:
 
-`kubeless function ls endpoint`{{execute}}
+`kubeless function ls endpoint`{{execute}} this will show the function we just deployed
 
 When the status is `READY`, we can try calling it with:
 
-`kubeless function call endpoint`{{execute}}
+`kubeless function call endpoint`{{execute}} this will print the returned value of the function when completed.
 
 The output we get is the returned data from the function. If we want to see the logged output we can use `kubeless function logs endpoint`{{execute}}.

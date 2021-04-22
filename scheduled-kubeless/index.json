@@ -2,14 +2,14 @@
   "title": "Scheduled Kubeless Function",
   "description": "Learn how to deploy a scheduled function that interacts with other cluster services using Kubeless",
   "difficulty": "Intermediate",
-  "time": "10-15 minutes",
+  "time": "15-20 minutes",
   "details": {
     "steps": [{
-      "title": "Step 1 - Setup Kubernetes",
+      "title": "Step 1 - About Kubernetes and Kubeless",
       "text": "step1.md"
     },
     {
-      "title": "Step 2 - About Kubeless",
+      "title": "Step 2 - Setup Kubernetes",
       "text": "step2.md"
     },
     {

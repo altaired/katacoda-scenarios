@@ -10,8 +10,9 @@ Let's create a deployment on our cluster with the image, by executing this comma
 
 `kubectl create deployment http-endpoint --image=katacoda/docker-http-server`{{execute}}
 
-We can verify that everything went well by listing the pods in the cluster; use `kubectl get pods`{{execute}} to do this.
+The command creates a deployment called `http-endpoint` using the image `katacoda/docker-http-server`.
 
+The deployment should create one _pod_ in our cluster, we can see this pod by listing all pods, use `kubectl get pods`{{execute}} to do this.
 
 You should see that there is one pod running with the prefix `http-endpoint`.
 
@@ -22,6 +23,6 @@ We will now expose this deployment with a [service](https://kubernetes.io/docs/c
 `kubectl expose deployment http-endpoint --port=80 --type=ClusterIP`{{execute}}
 
 
-Before continuing to the next step, let's make sure everything is running with the command:
-`kubectl get all`{{execute}}, which will list all components in the cluster. Check that both the deployment and service are ready before going to the next step.
+Before continuing to the next step, let's make sure our deployment was exposed properly by listing all services with
+`kubectl get services`{{execute}}, make sure that there is a service in the output of type `ClusterIP` for the `http-endpoint`.
 
