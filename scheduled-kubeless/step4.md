@@ -18,7 +18,7 @@ You should see that there is one pod running with the prefix `http-endpoint`.
 
 ## Service
 
-We will now expose this deployment with a [service](https://kubernetes.io/docs/concepts/services-networking/service/). Since we will only access the service inside of our cluser, we'll use the type ClusterIP. This exposes the service through an internal IP-address. We will also specify that the traffic should enter on port *80*. To expose the service we'll use the following command:
+We will now expose this deployment with a [service](https://kubernetes.io/docs/concepts/services-networking/service/). Since we will only access the service inside of our cluster, we'll use the type ClusterIP. This exposes the service through an internal IP-address. We will also specify that the traffic should enter on port *80*. To expose the service we'll use the following command:
 
 `kubectl expose deployment http-endpoint --port=80 --type=ClusterIP`{{execute}}
 

@@ -1,4 +1,4 @@
-Now that the Kubernetes cluster is set up, we're ready to install Kubeless.
+Now that the Kubernetes cluster is set up, we're ready to setup Kubeless.
 
 
 ## Installation
@@ -6,7 +6,7 @@ Now that the Kubernetes cluster is set up, we're ready to install Kubeless.
 Kubeless can be installed by following the following two part process.
 We'll first setup kubeless in our Kubernetes cluster, then we'll install the accompanying CLI tool.
 
-### Set up Kubernetes
+### Setup Kubeless
 
 Then, we're ready to set up the Kubernetes cluster for use with Kubeless. First, we will create the namespace `kubeless` to easily keep track of our Kubeless deploments, using the following command:
 
