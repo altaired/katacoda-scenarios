@@ -19,7 +19,7 @@ Then, we're ready to set up the Kubernetes cluster for use with Kubeless. First,
 
 `kubectl create ns kubeless`{{execute}}
 
-Next, we can use a config file provided bye Kubeless, which will create all components that are necessary for running functions on the cluster:
+Next, we can use a config file provided by Kubeless, which will create all components that are necessary for running functions on the cluster:
 
 `kubectl create -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-non-rbac-$RELEASE.yaml`{{execute}}
 
@@ -29,7 +29,7 @@ Let's see what's been created by listing all components in the `kubeless` namesp
 
 ### Install the CLI
 
-Finally, we need to install the command-line interface (CLI) of Kubeless. Like the config file, this binary is available through GitHub, and can be downloaded and unzipped using this command:
+Finally, we need to install the command-line interface (CLI) of Kubeless. Like the config file, this binary is available through GitHub, and can be downloaded, unzipped, and moved to a directory in the $PATH using this command:
 
 `curl -OL https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless_linux-amd64.zip && \
   unzip kubeless_linux-amd64.zip && \

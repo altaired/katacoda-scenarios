@@ -9,12 +9,12 @@ In order to call the function on a schedule we used a trigger of type cronjob. T
 
 `kubeless trigger cronjob list`{{execute}}
 
-To finally remove the cronjob trigger, we will use the following command:
+To remove the cronjob trigger, we will use the following command:
 
 `kubeless trigger cronjob delete cron-endpoint`{{execute}}
 
 
-Congratulations!
+Congratulations, you've made it all the way!
 
 
 

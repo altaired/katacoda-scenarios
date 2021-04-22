@@ -1,4 +1,4 @@
-On your right is a terminal that we've set up with a Kubernetes cluster. This cluster will be used throughout this tutorial. We expect you to have some knowledge about Kubernetes before doing this tutorial, and know about common concepts, such as clusters, services, and deployments. If you're completely unfamiliar with Kubernetes, we suggest you read up on it beforehand. At the bottom of this page, you can find links to two great tutorials on Kubernetes.
+On your right is a terminal that we've set up with a Kubernetes cluster. This cluster will be used throughout this tutorial. We expect you to have some knowledge about Kubernetes before doing this tutorial, meaning knowledge about common Kubernetes concepts, such as clusters, services, and deployments. If you're completely unfamiliar with Kubernetes, we suggest you read up on it beforehand. At the bottom of this page, you can find links to two great tutorials on Kubernetes.
 
 ## Setup
 
@@ -8,7 +8,7 @@ You can use `launch.sh`{{execute}} to check the progress. The command should pri
 
 Let's make sure everything is working by running `kubectl cluster-info`{{execute}}, which will tell you if and where the cluster is running.
 
-Once the cluster is ready, you are ready continue to the next step.
+Once the cluster is ready, you are ready for the next step.
 
 ## Kubernetes tutorial recomendations
 
