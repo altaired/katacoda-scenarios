@@ -21,7 +21,7 @@ Then, we're ready to set up the Kubernetes cluster for use with Kubeless. First,
 
 Next, we can use a config file provided bye Kubeless, which will create all components that are necessary for running functions on the cluster:
 
-`kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.8/kubeless-non-rbac-v1.0.8.yaml`{{execute}}
+`kubectl create -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-non-rbac-$RELEASE.yaml`{{execute}}
 
 Let's see what's been created by listing all components in the `kubeless` namespace:
 
