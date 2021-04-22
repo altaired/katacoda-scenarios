@@ -9,11 +9,11 @@
       "text": "step1.md"
     },
     {
-      "title": "Step 2 - Setup Kubernetes",
+      "title": "Step 2 - Start Kubernetes",
       "text": "step2.md"
     },
     {
-      "title": "Step 3 - Install Kubeless",
+      "title": "Step 3 - Setup Kubeless",
       "text": "step3.md"
     },
     {

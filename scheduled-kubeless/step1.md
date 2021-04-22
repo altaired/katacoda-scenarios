@@ -2,21 +2,21 @@ According to their [website](https://kubeless.io/), Kubeless is a "Kubernetes-na
 
 ## What is Kubernetes?
 
-Kubernetes is a platform that automates Linux container operations. It eliminates a great part of the manual processes involved in deploying and scaling containerized applications. With it you can you can cluster together groups of hosts running Linux containers, and Kubernetes helps you easily and efficiently manage these.
+[Kubernetes](https://kubernetes.io/) is a platform that automates Linux container operations. It eliminates a great part of the manual processes involved in deploying and scaling containerized applications. With it you can you can cluster together groups of hosts running Linux containers, and Kubernetes helps you easily and efficiently manage these.
 
 On your right is a terminal that we've set up with a Kubernetes cluster. This cluster will be used throughout this tutorial. We expect you to have knowledge about Kubernetes before doing this tutorial, meaning, you should know about common Kubernetes concepts, such as clusters, services, and deployments. If not, you'll find some resources to get you started at the bottom of this page.
 
 
 ## What is serverless?
 
-Serverless is a framework in which machine resources are managed by the cloud provider and allocated based on demand. Of course, servers are still used in this process, but they are abstracted away by the platform, such that the developer can focus on the actual code, without having to worry about the infrastructure.
+[Serverless](https://www.serverless.com/) is a framework in which machine resources are managed by the cloud provider and allocated based on demand. Of course, servers are still used in this process, but they are abstracted away by the platform, such that the developer can focus on the actual code, without having to worry about the infrastructure.
 
-Serverless often takes the shape of *Function as a Service* (FaaS), in which small bits of code can be deployed (so-called *functions*), which can respond to triggers from the environment (e.g., HTTP requests or a schedule). Example cloud offerings of FaaS are _AWS Lambda_, _Google Cloud Functions_, and _Azure Functions_.
+Serverless often takes the shape of *Function as a Service* (FaaS), in which small bits of code can be deployed (so-called *functions*), which can respond to triggers from the environment (e.g., HTTP requests or a schedule). Example cloud offerings of FaaS are [AWS Lambda](https://aws.amazon.com/lambda/), [Google Cloud Functions](https://cloud.google.com/functions), and [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview).
 
 
 ## What is Kubeless?
 
-Kubeless is an open-source FaaS framework that enables deploying serverless functions to a Kubernetes cluster, without having to worry about the exact components that come into play.
+[Kubeless](https://kubeless.io/) is an open-source FaaS framework that enables deploying serverless functions to a Kubernetes cluster, without having to worry about the exact components that come into play.
 
 Because Kubeless runs on Kubernetes, it makes it possible to keep away from the public cloud providers, and instead run the functions on your own (private cloud) infrastructure, while still supporting important features such as autoscaling.
 
